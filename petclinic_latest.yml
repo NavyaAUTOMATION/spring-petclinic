@@ -16,11 +16,11 @@
       state: directory
    - name: Copy war file
      copy:
-      src: /var/lib/jenkins/workspace/spring_petclinic/target/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar
+      src: /var/lib/jenkins/workspace/DeclarativePipeline/target/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar
       dest: /home/dockDeploy/target
    - name: Copy Dockerfile
      copy:
-      src: /var/lib/jenkins/workspace/spring_petclinic/Dockerfile
+      src: /var/lib/jenkins/workspace/DeclarativePipeline/Dockerfile
       dest: /home/dockDeploy/
    - name: Build Docker Image
      command: chdir=/home/dockDeploy/ docker build . -t anjurose/inclass
