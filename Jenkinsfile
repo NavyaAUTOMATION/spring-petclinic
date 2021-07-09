@@ -34,8 +34,8 @@ pipeline{
 		//sh "sudo docker run -d -p 8091:8080 anjurose/petclinic"
                 ansiblePlaybook credentialsId: 'id1', disableHostKeyChecking: true, inventory: '/etc/ansible/hosts', playbook: './petclinic_latest.yml' 
                 //sh "sudo /opt/puppetlabs/bin/puppet agent -t"   
-           // }
-        //}
+           }
+        }
     }
 }
 
