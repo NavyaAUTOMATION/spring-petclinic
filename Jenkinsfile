@@ -27,12 +27,12 @@ pipeline{
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
             }
         }
-        //stage('Deploy'){
-            //steps{
+        stage('Deploy'){
+            steps{
                     
 		//sh "sudo docker build . -t anjurose/petclinic"
 		//sh "sudo docker run -d -p 8091:8080 anjurose/petclinic"
-                //ansiblePlaybook credentialsId: 'ubuntu', disableHostKeyChecking: true, inventory: '/etc/ansible/hosts', playbook: './petclinic_latest.yml' 
+                ansiblePlaybook credentialsId: 'id1', disableHostKeyChecking: true, inventory: '/etc/ansible/hosts', playbook: './petclinic_latest.yml' 
                 //sh "sudo /opt/puppetlabs/bin/puppet agent -t"   
            // }
         //}
