@@ -10,25 +10,25 @@ pipeline{
 		}
 		stage(' Build') {
 			steps {
-				sh 'mvn clean compile'
+				bat 'mvn clean compile'
 			}
 		}
 		stage(' Test') {
 			steps {
-				sh 'mvn test'
+				bat 'mvn test'
 			}
 		}
                 stage(' Package') {
 			steps {
-				sh 'mvn package'
+				bat 'mvn package'
                                 archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
 			}
 		}	
-		stage(' Reports') {
-			steps {
-				sh 'mvn verify'
-                                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site/jacoco', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
-			}
-		}				
+		//stage(' Reports') {
+			//steps {
+				//bat 'mvn verify' 
+                                //publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site/jacoco', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+			//}
+		//}				
 	}
 }
